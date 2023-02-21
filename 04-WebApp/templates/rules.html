@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/CSS/style.css">
+    <title>Interview Simulator</title>
+
+  </head>
+  <body text-align="justify">
+    <a href="/">
+      <img src = "../static/CSS/images/head.png" width="100%">
+    </a>
+    <br>
+
+  {% block body %}
+
+<br>
+
+<div style="width:70%; text-align:justify; display:inline-block;">
+
+  <h2 style="font-size: 1em"> What is this platform ? </h2>
+
+  <br>
+
+  <p> This platform provides a tool for patients who are suffering with depression. Our platform allows the candidate to face 3 interviews to detect their emotion stage either by video or by text. We have developped complex Deep Learning algorithm that analyze the results of the video or the text and provide the candidate a summary of what our algorithm percieved, and how the candidate performed compared to previous candidates.</p>
+
+<br>
+  <img src = "../static/CSS/images/process.png" width="80%">
+<br>
+
+<br>
+
+  <h2 style="font-size: 1em"> Why this project ? </h2>
+
+  <br>
+
+<p>The project was developped as a university project for the Informatics Institute of Technology as our second year group project. We have worked for several months on the individual models, and built this platform the final month. We are using Python for the individual model training, Flask for the web interface, and D3.js for visualization purposes. All our work and the code for this open-source tool is available on the following GitHub Repository. </p>
+
+<br>
+
+<br>
+</div>
+
+<br>
+<br>
+<div style="width:70%; text-align:justify; display:inline-block;">
+
+  <h2 style="font-size: 1em"> Who contributed ? </h2>
+
+  <br>
+
+<div style="align-content:center;">
+
+<table style="align-content:center;"><tr><td align="center">
+  <a href="https://github.com/Anatoli-deBRADKE">
+  <img src="../static/CSS/images/team/sithum.jpg" width="100px; " height="120px" alt="Anatoli-deBRADKE"/>
+  <br /><sub><b>Sithum Raveesha</b></sub>
+  </a><br /><a href="https://github.com/maelfabien/Multimodal-Emotion-Recognition/commits?author=Anatoli-deBRADKE" title="Code">💻</a></td>
+  
+  <td align="center"><a href="https://github.com/RanminiW"><img src="../static/CSS/images/team/ranmini.jpg" width="100px;" height="120px" alt="mfix22"/>
+  <br /><sub><b>Ranmini</b></sub>
+  </a><br /><a href="https://github.com/sithum20210380/Icons-CS-33/commits/ranmini" title="Code">💻</a></td>
+
+  <td align="center"><a href="https://github.com/RanminiW"><img src="https://avatars2.githubusercontent.com/u/38351531?v=4" width="100px;" alt="mfix22"/>
+  <br /><sub><b>HariPrashanna</b></sub>
+  </a><br /><a href="https://github.com/maelfabien/Multimodal-Emotion-Recognition/commits?author=RaphaelLederman" title="Code">💻</a></td>
+
+  <td align="center"><a href="https://github.com/NM-AATHIL"><img src="https://avatars0.githubusercontent.com/u/43505879?v=4" width="100px;" alt="mfix22"/>
+  <br /><sub><b>Aathil</b></sub>
+  </a><br /><a href="https://github.com/maelfabien/Multimodal-Emotion-Recognition/commits?author=STF-R" title="Code">💻</a></td>
+
+  <td align="center"><a href="https://github.com/STF-R"><img src="https://avatars0.githubusercontent.com/u/43505879?v=4" width="100px;" alt="mfix22"/>
+    <br /><sub><b>Samitha</b></sub>
+    </a><br /><a href="https://github.com/maelfabien/Multimodal-Emotion-Recognition/commits?author=STF-R" title="Code">💻</a></td>
+  
+</tr></table>
+</div>
+  </div>
+
+<br>
+<br>
+<br>
+
+  <form>
+    <input type="button" value="Back" onclick="history.go(-1)">
+  </form>
+
+  <br>
+
+</body>
+
+
+{% endblock %}
