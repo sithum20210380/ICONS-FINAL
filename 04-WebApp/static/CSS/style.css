@@ -304,3 +304,26 @@ textarea {
      padding: 20px;
      margin: 5px;
 }
+
+.overview_buton {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #4DABB5; 
+  color: rgb(255, 255, 255); 
+  border: 2px solid #4DABB5;
+  border-radius: 10px;
+
+  position: relative;
+  top:35%;
+  left: 0;
+}
+.overview_buton:hover {
+  background-color: white;
+  color: #4DABB5;
+}
