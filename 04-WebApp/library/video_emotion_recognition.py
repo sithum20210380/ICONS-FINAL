@@ -18,6 +18,7 @@ import imutils
 from scipy import ndimage
 import dlib
 from imutils import face_utils
+from skimage import io
 
 ### Model ###
 from tensorflow.keras.models import load_model
@@ -294,6 +295,7 @@ def gen():
         
         # For flask, save image as t.jpg (rewritten at each step)
         cv2.imwrite('tmp/t.jpg', frame)
+        # img = io.imread('tmp/t.jpg', frame)
         
         # Yield the image at each step
         yield (b'--frame\r\n'
