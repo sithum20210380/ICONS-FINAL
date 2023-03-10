@@ -3,6 +3,6 @@ Angry,111
 Disgust,8
 Fear,85
 Happy,342
-Sad,502
-Surprise,208
-Neutral,1217
+Sad,518
+Surprise,209
+Neutral,1248
