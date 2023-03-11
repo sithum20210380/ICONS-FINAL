@@ -207,7 +207,7 @@ def audio_recording():
     # Instanciate new SpeechEmotionRecognition object
     SER = speechEmotionRecognition()
 
-    # Voice Recording.
+    # Voice Recording with rec duration and directory..
     rec_duration = 16 # in sec
     rec_sub_dir = os.path.join('04-WebApp','tmp','voice_recording.wav')
     SER.voice_recording(rec_sub_dir, duration=rec_duration)
