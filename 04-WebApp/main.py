@@ -31,6 +31,8 @@ import tempfile
 
 
 
+
+
 # Flask config
 app = Flask(__name__)
 app.secret_key = b'(\xee\x00\xd4\xce"\xcf\xe8@\r\xde\xfc\xbdJ\x08W'
@@ -207,7 +209,7 @@ def audio_recording():
     # Instanciate new SpeechEmotionRecognition object
     SER = speechEmotionRecognition()
 
-    # Voice Recording
+    # Voice Recording with rec durattion and directory..
     rec_duration = 16 # in sec
     rec_sub_dir = os.path.join('04-WebApp','tmp','voice_recording.wav')
     SER.voice_recording(rec_sub_dir, duration=rec_duration)
@@ -263,7 +265,7 @@ def audio_dash():
     df_other = pd.DataFrame(emotion_dist_other, index=SER._emotion.values(), columns=['VALUE']).rename_axis('EMOTION')
     df_other.to_csv(os.path.join('04-WebApp/static/js/db','audio_emotions_dist_other.txt'), sep=',')
 
-    # Sleep2
+    # Sleep
     time.sleep(0.5)
 
     return render_template('audio_dash.html', emo=major_emotion, emo_other=major_emotion_other, prob=emotion_dist, prob_other=emotion_dist_other)

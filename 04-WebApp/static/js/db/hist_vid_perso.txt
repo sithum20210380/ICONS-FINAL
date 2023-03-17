@@ -4,5 +4,10 @@ Disgust,0
 Fear,0
 Happy,0
 Sad,0
+<<<<<<< HEAD
 Surprise,0
 Neutral,21
+=======
+Surprise,1
+Neutral,13
+>>>>>>> e8511663a933176a0215c18d545448df169f7392
