@@ -31,6 +31,8 @@ import tempfile
 
 
 
+
+
 # Flask config
 app = Flask(__name__)
 app.secret_key = b'(\xee\x00\xd4\xce"\xcf\xe8@\r\xde\xfc\xbdJ\x08W'
@@ -207,7 +209,7 @@ def audio_recording():
     # Instanciate new SpeechEmotionRecognition object
     SER = speechEmotionRecognition()
 
-    # Voice Recording
+    # Voice Recording with rec durattion and directory..
     rec_duration = 16 # in sec
     rec_sub_dir = os.path.join('04-WebApp','tmp','voice_recording.wav')
     SER.voice_recording(rec_sub_dir, duration=rec_duration)
@@ -263,7 +265,7 @@ def audio_dash():
     df_other = pd.DataFrame(emotion_dist_other, index=SER._emotion.values(), columns=['VALUE']).rename_axis('EMOTION')
     df_other.to_csv(os.path.join('04-WebApp/static/js/db','audio_emotions_dist_other.txt'), sep=',')
 
-    # Sleep2
+    # Sleep
     time.sleep(0.5)
 
     return render_template('audio_dash.html', emo=major_emotion, emo_other=major_emotion_other, prob=emotion_dist, prob_other=emotion_dist_other)
@@ -307,9 +309,9 @@ def text_1():
     traits = ['Extraversion', 'Neuroticism', 'Agreeableness', 'Conscientiousness', 'Openness']
     probas = get_personality(text)[0].tolist()
     
-    df_text = pd.read_csv('static/js/db/text.txt', sep=",")
+    df_text = pd.read_csv('04-WebApp/static/js/db/text.txt', sep=",")
     df_new = df_text.append(pd.DataFrame([probas], columns=traits))
-    df_new.to_csv('static/js/db/text.txt', sep=",", index=False)
+    df_new.to_csv('04-WebApp/static/js/db/text.txt', sep=",", index=False)
     
     perso = {}
     perso['Extraversion'] = probas[0]
@@ -322,7 +324,7 @@ def text_1():
     df_text_perso = df_text_perso.reset_index()
     df_text_perso.columns = ['Trait', 'Value']
     
-    df_text_perso.to_csv('static/js/db/text_perso.txt', sep=',', index=False)
+    df_text_perso.to_csv('04-WebApp/static/js/db/text_perso.txt', sep=',', index=False)
     
     means = {}
     means['Extraversion'] = np.mean(df_new['Extraversion'])
@@ -338,7 +340,7 @@ def text_1():
     df_mean = df_mean.reset_index()
     df_mean.columns = ['Trait', 'Value']
     
-    df_mean.to_csv('static/js/db/text_mean.txt', sep=',', index=False)
+    df_mean.to_csv('04-WebApp/static/js/db/text_mean.txt', sep=',', index=False)
     trait_others = df_mean.loc[df_mean['Value'].idxmax()]['Trait']
     
     probas = [int(e*100) for e in probas]
@@ -358,24 +360,24 @@ def text_1():
     
     trait = traits[probas.index(max(probas))]
     
-    with open("static/js/db/words_perso.txt", "w") as d:
+    with open("04-WebApp/static/js/db/words_perso.txt", "w") as d:
         d.write("WORDS,FREQ" + '\n')
         for line in counts :
             d.write(line + "," + str(counts[line]) + '\n')
         d.close()
     
-    with open("static/js/db/words_common.txt", "a") as d:
+    with open("04-WebApp/static/js/db/words_common.txt", "a") as d:
         for line in counts :
             d.write(line + "," + str(counts[line]) + '\n')
         d.close()
 
-    df_words_co = pd.read_csv('static/js/db/words_common.txt', sep=',', error_bad_lines=False)
+    df_words_co = pd.read_csv('04-WebApp/static/js/db/words_common.txt', sep=',', error_bad_lines=False)
     df_words_co.FREQ = df_words_co.FREQ.apply(pd.to_numeric)
     df_words_co = df_words_co.groupby('WORDS').sum().reset_index()
-    df_words_co.to_csv('static/js/db/words_common.txt', sep=",", index=False)
+    df_words_co.to_csv('04-WebApp/static/js/db/words_common.txt', sep=",", index=False)
     common_words_others = df_words_co.sort_values(by=['FREQ'], ascending=False)['WORDS'][:15]
 
-    df_words_perso = pd.read_csv('static/js/db/words_perso.txt', sep=',', error_bad_lines=False)
+    df_words_perso = pd.read_csv('04-WebApp/static/js/db/words_perso.txt', sep=',', error_bad_lines=False)
     common_words_perso = df_words_perso.sort_values(by=['FREQ'], ascending=False)['WORDS'][:15]
 
     return render_template('text_dash.html', traits = probas, trait = trait, trait_others = trait_others, probas_others = probas_others, num_words = num_words, common_words = common_words_perso, common_words_others=common_words_others)
@@ -394,9 +396,9 @@ def text_pdf():
     traits = ['Extraversion', 'Neuroticism', 'Agreeableness', 'Conscientiousness', 'Openness']
     probas = get_personality(text)[0].tolist()
     
-    df_text = pd.read_csv('static/js/db/text.txt', sep=",")
+    df_text = pd.read_csv('04-WebApp/static/js/db/text.txt', sep=",")
     df_new = df_text.append(pd.DataFrame([probas], columns=traits))
-    df_new.to_csv('static/js/db/text.txt', sep=",", index=False)
+    df_new.to_csv('04-WebApp/static/js/db/text.txt', sep=",", index=False)
     
     perso = {}
     perso['Extraversion'] = probas[0]
@@ -409,7 +411,7 @@ def text_pdf():
     df_text_perso = df_text_perso.reset_index()
     df_text_perso.columns = ['Trait', 'Value']
     
-    df_text_perso.to_csv('static/js/db/text_perso.txt', sep=',', index=False)
+    df_text_perso.to_csv('04-WebApp/static/js/db/text_perso.txt', sep=',', index=False)
     
     means = {}
     means['Extraversion'] = np.mean(df_new['Extraversion'])
@@ -425,7 +427,7 @@ def text_pdf():
     df_mean = df_mean.reset_index()
     df_mean.columns = ['Trait', 'Value']
     
-    df_mean.to_csv('static/js/db/text_mean.txt', sep=',', index=False)
+    df_mean.to_csv('04-WebApp/static/js/db/text_mean.txt', sep=',', index=False)
     trait_others = df_mean.ix[df_mean['Value'].idxmax()]['Trait']
     
     probas = [int(e*100) for e in probas]
@@ -445,24 +447,24 @@ def text_pdf():
     
     trait = traits[probas.index(max(probas))]
     
-    with open("static/js/db/words_perso.txt", "w") as d:
+    with open("04-WebApp/static/js/db/words_perso.txt", "w") as d:
         d.write("WORDS,FREQ" + '\n')
         for line in counts :
             d.write(line + "," + str(counts[line]) + '\n')
         d.close()
     
-    with open("static/js/db/words_common.txt", "a") as d:
+    with open("04-WebApp/static/js/db/words_common.txt", "a") as d:
         for line in counts :
             d.write(line + "," + str(counts[line]) + '\n')
         d.close()
 
-    df_words_co = pd.read_csv('static/js/db/words_common.txt', sep=',', error_bad_lines=False)
+    df_words_co = pd.read_csv('04-WebApp/static/js/db/words_common.txt', sep=',', error_bad_lines=False)
     df_words_co.FREQ = df_words_co.FREQ.apply(pd.to_numeric)
     df_words_co = df_words_co.groupby('WORDS').sum().reset_index()
-    df_words_co.to_csv('static/js/db/words_common.txt', sep=",", index=False)
+    df_words_co.to_csv('04-WebApp/static/js/db/words_common.txt', sep=",", index=False)
     common_words_others = df_words_co.sort_values(by=['FREQ'], ascending=False)['WORDS'][:15]
 
-    df_words_perso = pd.read_csv('static/js/db/words_perso.txt', sep=',', error_bad_lines=False)
+    df_words_perso = pd.read_csv('04-WebApp/static/js/db/words_perso.txt', sep=',', error_bad_lines=False)
     common_words_perso = df_words_perso.sort_values(by=['FREQ'], ascending=False)['WORDS'][:15]
 
     return render_template('text_dash.html', traits = probas, trait = trait, trait_others = trait_others, probas_others = probas_others, num_words = num_words, common_words = common_words_perso, common_words_others=common_words_others)

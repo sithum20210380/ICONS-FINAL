@@ -3,6 +3,6 @@ Angry,9
 Disgust,19
 Fear,1
 Happy,1
-Neutral,46
-Sad,18
+Neutral,47
+Sad,19
 Surprise,0
