@@ -13,7 +13,7 @@ import altair as alt
 
 ### Flask imports
 import requests
-from flask import Flask, render_template, session, request, redirect, flash, Response
+from flask import Flask, jsonify, render_template, session, request, redirect, flash, Response
 
 ### Audio imports ###
 from library.speech_emotion_recognition import *
@@ -31,21 +31,25 @@ import tempfile
 
 
 
-
-
 # Flask config
 app = Flask(__name__)
 app.secret_key = b'(\xee\x00\xd4\xce"\xcf\xe8@\r\xde\xfc\xbdJ\x08W'
 app.config['UPLOAD_FOLDER'] = '/Upload'
+
 
 ################################################################################
 ################################## INDEX #######################################
 ################################################################################
 
 # Home page
-@app.route('/', methods=['GET'])
+@app.route('/index' , methods=['POST'])
 def index():
     return render_template('index.html')
+
+# Login page
+@app.route('/', methods=['GET'])
+def login():
+    return render_template('login.html')
 
 ################################################################################
 ################################## RULES #######################################

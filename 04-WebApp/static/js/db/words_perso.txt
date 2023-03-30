@@ -1,4 +1,2 @@
 WORDS,FREQ
-happy,144
-vhappyhappy,12
-vhappy,1
+3eddrgdr,1
