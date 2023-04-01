@@ -13,7 +13,8 @@ import altair as alt
 
 ### Flask imports
 import requests
-from flask import Flask, jsonify, render_template, session, request, redirect, flash, Response
+import pyrebase
+from flask import Flask, jsonify, render_template, session, request, redirect, flash, Response,url_for
 
 ### Audio imports ###
 from library.speech_emotion_recognition import *
@@ -37,6 +38,106 @@ app.secret_key = b'(\xee\x00\xd4\xce"\xcf\xe8@\r\xde\xfc\xbdJ\x08W'
 app.config['UPLOAD_FOLDER'] = '/Upload'
 
 
+#Add your own details
+config = {
+  "apiKey": "AIzaSyBvZl1vrGOTC_qiCZLE0MapKOFuJgrF5zs",
+  "authDomain": "patiet-360.firebaseapp.com",
+  "databaseURL": "https://patiet-360-default-rtdb.firebaseio.com/",
+  "storageBucket": "patiet-360.appspot.com"
+}
+
+#initialize firebase
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+db = firebase.database()
+
+#Initialze person as dictionary
+person = {"is_logged_in": False, "name": "", "email": "", "uid": ""}
+
+#Login
+@app.route("/")
+def login():
+    return render_template("login.html")
+
+#Sign up/ Register
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+#Welcome page
+@app.route("/welcome")
+def welcome():
+    if person["is_logged_in"] == True:
+        return render_template("welcome.html", email = person["email"], name = person["name"])
+    else:
+        return redirect(url_for('login'))
+
+#If someone clicks on login, they are redirected to /result
+@app.route("/result", methods = ["POST", "GET"])
+def result():
+    if request.method == "POST":        #Only if data has been posted
+        result = request.form           #Get the data
+        email = result["email"]
+        password = result["pass"]
+        try:
+            #Try signing in the user with the given information
+            user = auth.sign_in_with_email_and_password(email, password)
+            #Insert the user data in the global person
+            global person
+            person["is_logged_in"] = True
+            person["email"] = user["email"]
+            person["uid"] = user["localId"]
+            #Get the name of the user
+            data = db.child("users").get()
+            person["name"] = data.val()[person["uid"]]["name"]
+            #Redirect to welcome page
+            return redirect(url_for('welcome'))
+        except:
+            #If there is any error, redirect back to login
+            return redirect(url_for('login'))
+    else:
+        if person["is_logged_in"] == True:
+            return redirect(url_for('welcome'))
+        else:
+            return redirect(url_for('login'))
+
+#If someone clicks on register, they are redirected to /register
+@app.route("/register", methods = ["POST", "GET"])
+def register():
+    if request.method == "POST":
+        result = request.form
+        email = result["email"]
+        password = result["pass"]
+        name = result["name"]
+        try:
+            # Create the user account using the provided data
+            auth.create_user_with_email_and_password(email, password)
+            # Login the user
+            user = auth.sign_in_with_email_and_password(email, password)
+            # Add data to global person
+            global person
+            person["is_logged_in"] = True
+            person["email"] = user["email"]
+            person["uid"] = user["localId"]
+            person["name"] = name
+            # Append data to the firebase realtime database
+            data = {"name": name, "email": email}
+            db.child("users").child(person["uid"]).set(data)
+            # Debugging output to verify that data is being added correctly
+            print("Data added to Firebase:", data)
+            # Redirect to welcome page
+            return redirect(url_for('welcome'))
+        except Exception as e:
+            # Print error message and redirect to register page
+            print("Error:", e)
+            return redirect(url_for('register'))
+
+    else:
+        if person["is_logged_in"] == True:
+            return redirect(url_for('welcome'))
+        else:
+            return redirect(url_for('register'))
+
 ################################################################################
 ################################## INDEX #######################################
 ################################################################################
@@ -45,11 +146,6 @@ app.config['UPLOAD_FOLDER'] = '/Upload'
 @app.route('/index' , methods=['POST'])
 def index():
     return render_template('index.html')
-
-# Login page
-@app.route('/', methods=['GET'])
-def login():
-    return render_template('login.html')
 
 ################################################################################
 ################################## RULES #######################################

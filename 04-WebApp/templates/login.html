@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="../static/CSS/login.css">
-  </head>
-  <body>
-    <a href="/">
-      <img src = "../static/CSS/images/headnew.png" width="100%">
-    </a>
-    <form>
-      <h1>Login</h1>
-      <label for="username">Patient Name:</label>
-      <input type="text" id="username" name="username" required>
-      <label for="password">Patient Code:</label>
-      <input type="password" id="password" name="password" required>
+<head>
+	<title>Pyrebase-Flask-Login</title>
+	<link rel="stylesheet" type="text/css" href="../static/CSS/login.css">
+</head>
+<body>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Sign In </h2>
+    <a href="http://127.0.0.1:5000/signup"><h2 class="inactive underlineHover">Sign Up </h2></a>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <!-- <img src="{{ url_for('static', filename = 'user.png') }}" id="icon" alt="User Icon" /> -->
+      <img src="../static/user.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form action="http://127.0.0.1:5000/result" method="POST">
+      <input type="email" id="login" class="fadeIn second" name="email" placeholder="email">
+      <input type="password" id="password" class="fadeIn third" name="pass" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
-    <form action="index" method="post" align="center">
-      <input type="submit" name="text" value="Enter the Platform" align="center">
-    </form>
-    <script src="../static/js/d3/login.js"></script>
-  </body>
+<!-- 
+	Will add in future
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+ -->
+  </div>
+</div>
+</body>
 </html>
