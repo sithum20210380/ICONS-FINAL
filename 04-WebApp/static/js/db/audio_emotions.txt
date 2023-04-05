@@ -1,8 +1,9 @@
 EMOTIONS
-<<<<<<< HEAD
+Disgust
 Neutral
-=======
->>>>>>> e8511663a933176a0215c18d545448df169f7392
+Neutral
+Neutral
+Disgust
 Disgust
 Neutral
 Neutral
@@ -11,21 +12,3 @@ Neutral
 Neutral
 Neutral
 Neutral
-Neutral
-Neutral
-Neutral
-Disgust
-<<<<<<< HEAD
-=======
-Neutral
-Neutral
-Neutral
-Neutral
-Neutral
-Sad
-Neutral
-Neutral
-Neutral
-Neutral
-Neutral
->>>>>>> e8511663a933176a0215c18d545448df169f7392

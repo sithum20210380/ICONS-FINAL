@@ -240,7 +240,7 @@ textarea {
 
 .you { background: #ff0000;}
 .others { background: #69b3a2;}
-}
+
 
 /*HTML Horizonal Legend*/
 .country-name {
@@ -327,3 +327,41 @@ textarea {
   background-color: white;
   color: #4DABB5;
 }
+.hari{
+ 
+ padding-bottom: 15px;
+ width: 100px;
+ height: 140px;
+ 
+}
+
+.back-to-top {
+ 
+  position: relative;
+  bottom: 33px;
+  right: 0px;
+  left: 600px;
+  z-index: 99;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  background-color: #757575;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+ border-radius: 10px;
+ 
+}
+
+.back-to-top:hover {
+  background-color: #555;
+}
+
+
+
+	
+	
+	
+
+
+
