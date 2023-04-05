@@ -37,7 +37,7 @@ app.secret_key = b'(\xee\x00\xd4\xce"\xcf\xe8@\r\xde\xfc\xbdJ\x08W'
 app.config['UPLOAD_FOLDER'] = '/Upload'
 
 
-#Add your own details
+#Firebase credentials
 config = {
   "apiKey": "AIzaSyBvZl1vrGOTC_qiCZLE0MapKOFuJgrF5zs",
   "authDomain": "patiet-360.firebaseapp.com",

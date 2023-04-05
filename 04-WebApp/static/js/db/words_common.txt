@@ -33,7 +33,7 @@ WORDS,FREQ
 ability,14.0
 academic,10.0
 accomplishment,2.0
-achieve,2.0
+achieve,5.0
 acquire,2.0
 across,4.0
 activity,4.0
@@ -51,11 +51,13 @@ allow,10.0
 already,2.0
 also,27.0
 always,7.0
+amaze,3.0
 among,4.0
 analysis,4.0
 analytical,4.0
 anatomy,2.0
 anomaly,2.0
+anything,3.0
 apart,2.0
 application,16.0
 apply,6.0
@@ -99,6 +101,7 @@ c,2.0
 call,6.0
 camille,4.0
 camp,4.0
+capable,3.0
 car,2.0
 career,16.0
 case,8.0
@@ -172,7 +175,7 @@ customize,2.0
 cut,2.0
 data,10.0
 dauphine,4.0
-day,1.0
+day,4.0
 dbldn,2.0
 ddddd,1.0
 de,2.0
@@ -264,7 +267,7 @@ favourable,4.0
 feel,15.0
 feeling,7.0
 field,10.0
-fill,2.0
+fill,5.0
 finance,6.0
 financial,16.0
 find,1.0
@@ -297,9 +300,9 @@ github,8.0
 give,4.0
 global,6.0
 gmail,6.0
-go,3.0
+go,6.0
 goal,4.0
-good,6.0
+good,9.0
 grab,2.0
 graduate,14.0
 graph,8.0
@@ -313,7 +316,7 @@ guideline,2.0
 gynecology,2.0
 handle,18.0
 happens,2.0
-happiness,6.0
+happiness,9.0
 happy,169.0
 hard,6.0
 hear,2.0
@@ -322,13 +325,14 @@ hec,2.0
 hello,33.0
 help,2.0
 hesitate,2.0
+hey,3.0
 high,6.0
 highlight,2.0
 highly,14.0
 hiring,6.0
 honesty,4.0
 honour,4.0
-hope,4.0
+hope,7.0
 hopeless,1.0
 hopelessness,1.0
 hospital,2.0
@@ -382,8 +386,8 @@ job,8.0
 join,8.0
 joined,2.0
 journey,2.0
-joy,3.0
-keep,6.0
+joy,6.0
+keep,9.0
 kera,2.0
 key,4.0
 kind,1.0
@@ -426,6 +430,7 @@ long,4.0
 look,2.0
 loomky,4.0
 lose,1.0
+lot,3.0
 love,2.0
 m,4.0
 machine,6.0
@@ -454,6 +459,7 @@ memoir,2.0
 message,2.0
 method,2.0
 microsoft,2.0
+mind,3.0
 mindedness,4.0
 mine,2.0
 minute,2.0
@@ -525,7 +531,7 @@ perrin,4.0
 personal,2.0
 phd,6.0
 phone,4.0
-place,2.0
+place,5.0
 platform,4.0
 please,6.0
 pleasure,4.0
@@ -533,7 +539,7 @@ point,5.0
 portfolio,4.0
 position,10.0
 positive,2.0
-positivity,1.0
+positivity,4.0
 post,2.0
 precise,4.0
 preferred,2.0
@@ -586,7 +592,7 @@ regard,10.0
 reinforce,4.0
 remain,4.0
 remarkable,4.0
-remember,3.0
+remember,6.0
 rental,2.0
 require,4.0
 research,2.0
@@ -622,7 +628,7 @@ sense,3.0
 september,8.0
 series,2.0
 service,6.0
-set,2.0
+set,5.0
 share,6.0
 short,2.0
 show,4.0
@@ -637,6 +643,7 @@ situation,2.0
 six,4.0
 sixth,2.0
 skill,13.0
+smiling,3.0
 societe,4.0
 someone,2.0
 something,3.0
@@ -648,6 +655,7 @@ speaker,2.0
 special,2.0
 specific,4.0
 spending,2.0
+spread,3.0
 sql,2.0
 stage,2.0
 standard,4.0
@@ -743,13 +751,14 @@ way,8.0
 welcome,2.0
 well,8.0
 wellbeing,1.0
+wherever,3.0
 whether,2.0
 willing,4.0
-wonderful,2.0
+wonderful,5.0
 word,2.0
 work,74.0
 working,2.0
-world,2.0
+world,5.0
 would,18.0
 write,4.0
 year,14.0
