@@ -19,7 +19,7 @@ from flask import Flask, jsonify, render_template, session, request, redirect, f
 ### Audio imports ###
 from library.speech_emotion_recognition import *
 
-### Video imports ###
+### Video imports ##
 from library.video_emotion_recognition import *
 
 ### Text imports ###
