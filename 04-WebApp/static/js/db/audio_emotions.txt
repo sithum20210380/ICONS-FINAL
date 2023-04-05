@@ -1,10 +1,10 @@
 EMOTIONS
-Disgust
 Neutral
 Neutral
 Neutral
-Disgust
-Disgust
+Neutral
+Neutral
+Neutral
 Neutral
 Neutral
 Neutral
