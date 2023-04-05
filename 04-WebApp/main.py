@@ -13,7 +13,7 @@ import altair as alt
 
 ### Flask imports
 import requests
-# import pyrebase
+import pyrebase
 from flask import Flask, jsonify, render_template, session, request, redirect, flash, Response,url_for
 
 ### Audio imports ###
