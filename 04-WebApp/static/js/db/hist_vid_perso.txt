@@ -1,15 +1,8 @@
 EMOTION,VALUE
-Angry,1
+Angry,0
 Disgust,0
 Fear,0
-<<<<<<< HEAD
 Happy,0
-Sad,2
+Sad,35
 Surprise,0
-Neutral,50
-=======
-Happy,5
-Sad,1
-Surprise,1
-Neutral,47
->>>>>>> ec6a3fadc73f80a4942615b0344bf9faa54d9865
+Neutral,16
